@@ -1,0 +1,20 @@
+[Unit]
+Description=TTSAIAgent Flask Application
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/TTSAIAgent
+Environment=PATH=/home/ubuntu/TTSAIAgent/venv/bin
+Environment=FLASK_HOST=0.0.0.0
+Environment=FLASK_PORT=5000
+Environment=FLASK_DEBUG=false
+ExecStart=/home/ubuntu/TTSAIAgent/venv/bin/python /home/ubuntu/TTSAIAgent/app.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

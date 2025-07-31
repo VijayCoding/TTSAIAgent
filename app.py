@@ -28,12 +28,23 @@ def generate_audio():
     except Exception as e:
         file_data_b64 = None
 
-    return jsonify({
+    # Prepare response
+    response_data = {
         "status": "success",
         "output_file": output_file,
-        "output_path": output_path,
+        # "output_path": output_path,
         "file_data": file_data_b64
-    })
+    }
+
+    # Delete the file after reading it
+    try:
+        if os.path.exists(output_path):
+            os.remove(output_path)
+            print(f"Deleted file: {output_path}")
+    except Exception as e:
+        print(f"Warning: Could not delete file {output_path}: {e}")
+
+    return jsonify(response_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

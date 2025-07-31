@@ -1,0 +1,41 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+app.log
+
+# Audio files (optional - you might want to keep some sample files)
+*.mp3
+*.wav
+*.ogg
+
+# Downloads folder contents
+Downloads/
+
+# Temporary files
+*.tmp
+temp/
+
+# Environment variables
+.env
+.env.local
